@@ -1,0 +1,39 @@
+{% extends 'grupo/base.html' %}
+{% load static %}
+{% block content %}
+
+
+
+<div class="imagem__conteudo">
+  <section class="cards__titulo">
+    <h2>Cadastro para novos SuperSintáticos:</h2>
+  </section>
+
+  <section class="formulario">
+    <form action="{% url 'cadastro' %}" method="POST">
+      {% csrf_token %}
+      <div class="col-12 col-lg-12" style="margin-bottom: 10px">
+          {% for field in form.visible_fields %}
+          <div>
+              <label style="color: #d9d9d9; margin-bottom: 5px; margin-top: 5px;"
+                  for="{{ field.id_for_label }}">{{ field.label }}</label>
+              {{ field }}
+          </div>
+          {% endfor %}
+
+          <div style="padding-top: 5px;">
+              <button class="btn btn-success" style="padding-top: 5px" type="submit"> Cadastrar </button>
+          </div>
+      </div>
+  </form>
+  </section>
+</div>
+</section>
+
+
+
+
+</main>
+</div>
+
+{% endblock %}
